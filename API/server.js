@@ -1,14 +1,17 @@
 var app = require('express')(); // Express App include
 var mysql = require('mysql'); // Mysql include
 var bodyParser = require("body-parser"); // Body parser for fetch posted data
-const ip = 127.17.0.2;//process.env.IP;
-const usr = 'daniel';//process.env.USR;
-const pass = 'daniel';//process.env.PASS;
+const ip = //process.env.IP;
+const usr = //process.env.USR;
+const pass = //process.env.PASS;
+const db_name = 'sis_db';//process.env.DB_NAME;
+const port_num = //process.env.DB_PORT;
 var connection = mysql.createConnection({ // Mysql Connection
     host : ip,
     user : usr,
     password : pass,
-    database : 'company',
+    database : db_name,
+    port : port_num,
    // insecureAuth : true,
    // socketPath: '/var/run/mysqld/mysqld.sock',
 });
@@ -22,26 +25,32 @@ app.get('/', (req, res) => {
     res.send('Probando si funciona esta cosa\n');
   });
 
-// fetch all users from users table in DB.
-app.get('/todos',function(req,res){
+
+/*
+    **************************************************************************
+    ******************************** EMPRESAS ********************************
+    **************************************************************************
+ */
+// Obtiene todas las empresas asociadas al sistema.
+app.get('/Empresa/Todos',function(req,res){
     var data = {
         "error":true,
-        "Users":""
+        "Empresas":""
     };
 
-    connection.query("SELECT * from employees",function(err, rows, fields){
+    connection.query("SELECT * from empresa",function(err, rows, fields){
         if(rows.length != 0){
             res.json(rows);
         }else{
             data["error"] = true;
-            data["Users"] = 'No users Found..';
+            data["Empresas"] = 'No se encontró ninguna empresa';
             res.json(data);
         }
     });
 });
 
-// agregar un nuevo empleado
-app.post('/nuevo',function(req,res){
+// Agregar una nueva empresa
+app.post('/Empresa/Nueva',function(req,res){
     var a1 = req.body.nombre;
     var a2 = req.body.apellido;
     var a3 = req.body.depto;
