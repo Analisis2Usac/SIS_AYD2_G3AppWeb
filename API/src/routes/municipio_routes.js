@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const muni_controller = require('../controllers/muni_controller');
+const muni_controller = require('../controllers/muni_controllers');
 
 router.get("/", muni_controller.get);
 
