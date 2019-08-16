@@ -25,7 +25,6 @@ const getOne = (req, res) => {
 
 const insert = (req, res) => {
     const { id, nombre } = req.body;
-    //console.log(req.body);
 
     const query = `CALL muniAddOrEdit(?, ?)`;
 
@@ -38,8 +37,24 @@ const insert = (req, res) => {
     });
 }
 
+const update = (req, res) => {
+    const { nombre } = req.body;
+    const { id } = req.params;
+
+    const query = 'CALL muniAddOrEdit (?, ?)';
+
+    mysqlConnection.query(query, [id, nombre], (err, rows, fields) => {
+        if (!err) {
+            res.json({ Status: 'Municipio updated!' });
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 module.exports = {
     get: get,
     getOne: getOne,
-    insert: insert
+    insert: insert,
+    update: update
 }
