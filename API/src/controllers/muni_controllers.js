@@ -52,9 +52,22 @@ const update = (req, res) => {
     });
 }
 
+const deleteMuni = (req, res) => {
+    const { id } = req.params;
+
+    mysqlConnection.query('DELETE FROM municipio WHERE id_municipio = ?', [id], (err, rows, fields) => {
+        if (!err) {
+            res.json({ status: 'Municipio deleted!' });
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 module.exports = {
     get: get,
     getOne: getOne,
     insert: insert,
-    update: update
+    update: update,
+    deleteMuni: deleteMuni
 }
