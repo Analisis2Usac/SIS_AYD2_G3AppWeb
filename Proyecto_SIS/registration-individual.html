@@ -24,16 +24,19 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.html">Catálogo/Servicios</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Tarifas</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">Sobre nosotros</a></li>
-                </ul><span class="navbar-text actions"> <a href="registration-.html" class="login">Registrarse</a><a class="btn btn-light action-button" role="button" href="login.html">Iniciar sesión</a></span></div>
+                </ul><span class="navbar-text actions"> <a href="registration-.html" class="login">Registrarse</a><a class="btn btn-light shadow action-button" role="button" href="login.html">Iniciar sesión</a></span></div>
         </div>
     </nav>
     <div class="register-photo" style="margin-top: 0px;">
         <div class="form-container">
+            <div class="image-holder" style="background-image: url(&quot;assets/img/lake-atitlan.jpg&quot;);"></div>
             <form method="post">
-                <h2 class="text-center"><strong>Crea</strong> una cuenta para servicio individual.<br></h2>
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Correo electrónico"></div>
-                <div class="form-group"><input class="form-control" type="email" name="dpi" placeholder="DPI"></div>
-                <div class="form-group mb-2"><input class="form-control" type="email" name="nit" placeholder="NIT"></div>
+                <h2 class="text-center"><strong>Crear</strong> una cuenta para servicio individual.<br></h2>
+                <div class="form-group"><input class="form-control form-control-lg" type="email" name="email" required="" placeholder="Correo electrónico" autofocus="" autocomplete="on" inputmode="email"></div>
+                <div class="form-group text-success row" style="margin-left: 0px;margin-right: 0px;margin-bottom: 0px;"><input class="form-control col-sm" type="text" name="name" required="" placeholder="Nombre" autocomplete="off" id="name"><input class="form-control col-sm" type="text" name="last_name" required="" placeholder="Apellido" autocomplete="off"
+                        id="last_name"></div>
+                <div class="form-group"><input class="form-control" type="tel" name="phone" required="" placeholder="Número de télefono" autocomplete="off" inputmode="tel"></div>
+                <div class="form-group"><input class="form-control" type="text" name="city" required="" placeholder="Ciudad" autocomplete="off"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Contraseña"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Confirmar contraseña"></div>
                 <div class="form-group">
