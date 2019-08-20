@@ -1,19 +1,43 @@
 const mysql = require('mysql');
 
-const mysqlConnection = mysql.createConnection({
+let env = process.env.NODE_ENV || 'development';
+let mysqlConnection;
+let db = '';
+
+if (env == "development") {
+    mysqlConnection = mysql.createConnection({
+        host: 'localhost',
+        port: '3307',
+        user: 'root',
+        password: '1234',
+        database: 'sis_db'
+    });
+    db = 'production';
+} else {
+    mysqlConnection = mysql.createConnection({
+        host: 'localhost',
+        port: '3307',
+        user: 'root',
+        password: '1234',
+        database: 'sis_db_test'
+    });
+    db = 'test';
+}
+
+/*const mysqlConnection = mysql.createConnection({
     host: 'mysql-4291-0.cloudclusters.net',
     port: '10017',
     user: 'root_ayd2',
     password: 'ayd2_g3',
     database: 'sis_db'
-});
+});*/
 
 mysqlConnection.connect(function(err) {
     if (err) {
         console.log(err);
         return;
     } else {
-        console.log('DB is connected!');
+        console.log('DB is connected! ' + db);
     }
 });
 
