@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET municipio', () => {
-    it('it should Get all municipios', (done) => {
+describe('/GET Empleado', () => {
+    it('it should Get all empleados', (done) => {
         chai.request(app)
-            .get('/municipio/')
+            .get('/empleado/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,10 +18,10 @@ describe('/GET municipio', () => {
     });
 });
 
-describe('/GET one municipio', () => {
-    it('it should Get one municipio', (done) => {
+describe('/GET one Empleado', () => {
+    it('it should Get one empleado', (done) => {
         chai.request(app)
-            .get('/municipio/1')
+            .get('/empleado/1')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
@@ -30,54 +30,56 @@ describe('/GET one municipio', () => {
     });
 });
 
-describe('/POST municipio', () => {
-    it('it sould post the municipio info', (done) => {
-        const muni = {
-            id: 0,
-            nombre: "mixco2",
+describe('/POST Empleado', () => {
+    it('it sould post the empleado info', (done) => {
+        const emp = {
+            id_empleado: 0,
+            id_empresa: 1,
+            email: "email1"
         };
 
         chai.request(app)
-            .post('/municipio/')
+            .post('/empleado/')
+            .send(emp)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('Status');
+                res.body.should.have.property('Status').eq('Empleado Saved!');
+                done();
+            });
+    });
+});
+
+describe('/PUT/:id Empleado', () => {
+    it('it sould put the empleado with the id = id', (done) => {
+        const muni = {
+            id_empresa: 1,
+            email: "email1"
+        };
+
+        chai.request(app)
+            .put('/empleado/2')
             .send(muni)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Municipio Saved!');
+                res.body.should.have.property('Status').eq('Empleado updated!');
                 done();
             });
     });
 });
 
-describe('/PUT/:id municipio', () => {
-    it('it sould put the municipio with the id = id', (done) => {
-        const muni = {
-            nombre: "mixco",
-        };
-
+describe('/DELETE/:id empleado', () => {
+    it('it should delete the empleado with the id = id', (done) => {
         chai.request(app)
-            .put('/municipio/1')
-            .send(muni)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Municipio updated!');
-                done();
-            });
-    });
-});
-
-describe('/DELETE/:id municipio', () => {
-    it('it should delete the municipio with the id = id', (done) => {
-        chai.request(app)
-            .delete('/municipio/3')
+            .delete('/empleado/3')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Municipio deleted!');
+                res.body.should.have.property('status').eq('Empleado deleted!');
                 done();
             });
     });

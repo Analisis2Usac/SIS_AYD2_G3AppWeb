@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET municipio', () => {
-    it('it should Get all municipios', (done) => {
+describe('/GET doc', () => {
+    it('it should Get all docs', (done) => {
         chai.request(app)
-            .get('/municipio/')
+            .get('/documento/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,66 +18,68 @@ describe('/GET municipio', () => {
     });
 });
 
-describe('/GET one municipio', () => {
-    it('it should Get one municipio', (done) => {
-        chai.request(app)
-            .get('/municipio/1')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done();
-            });
-    });
-});
-
-describe('/POST municipio', () => {
-    it('it sould post the municipio info', (done) => {
-        const muni = {
-            id: 0,
-            nombre: "mixco2",
+describe('/POST doc', () => {
+    it('it sould post the doc info', (done) => {
+        const doc = {
+            id_documento: 0,
+            documento: "doc1",
+            id_empleado: 1
         };
 
         chai.request(app)
-            .post('/municipio/')
-            .send(muni)
+            .post('/documento/')
+            .send(doc)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Municipio Saved!');
+                res.body.should.have.property('Status').eq('Documento Saved!');
                 done();
             });
     });
 });
 
-describe('/PUT/:id municipio', () => {
-    it('it sould put the municipio with the id = id', (done) => {
-        const muni = {
-            nombre: "mixco",
+describe('/GET one doc', () => {
+    it('it should Get one doc', (done) => {
+        chai.request(app)
+            .get('/documento/1')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                done();
+            });
+    });
+});
+
+describe('/PUT/:id doc', () => {
+    it('it sould put the doc with the id = id', (done) => {
+        const doc = {
+            documento: "rutaNueva",
+            id_empleado: 1
         };
 
         chai.request(app)
-            .put('/municipio/1')
-            .send(muni)
+            .put('/documento/2')
+            .send(doc)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Municipio updated!');
+                res.body.should.have.property('Status').eq('Documento updated!');
                 done();
             });
     });
 });
 
-describe('/DELETE/:id municipio', () => {
-    it('it should delete the municipio with the id = id', (done) => {
+describe('/DELETE/:id doc', () => {
+    it('it should delete the doc with the id = id', (done) => {
         chai.request(app)
-            .delete('/municipio/3')
+            .delete('/documento/3')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Municipio deleted!');
+                res.body.should.have.property('status').eq('Documento deleted!');
                 done();
             });
     });

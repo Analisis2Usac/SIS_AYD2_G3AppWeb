@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET municipio', () => {
-    it('it should Get all municipios', (done) => {
+describe('/GET Photo', () => {
+    it('it should Get all photos', (done) => {
         chai.request(app)
-            .get('/municipio/')
+            .get('/foto/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,10 +18,10 @@ describe('/GET municipio', () => {
     });
 });
 
-describe('/GET one municipio', () => {
-    it('it should Get one municipio', (done) => {
+describe('/GET one Photo', () => {
+    it('it should Get one foto', (done) => {
         chai.request(app)
-            .get('/municipio/1')
+            .get('/foto/1')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
@@ -30,54 +30,56 @@ describe('/GET one municipio', () => {
     });
 });
 
-describe('/POST municipio', () => {
-    it('it sould post the municipio info', (done) => {
-        const muni = {
-            id: 0,
-            nombre: "mixco2",
+describe('/POST Photo', () => {
+    it('it sould post the photo info', (done) => {
+        const emp = {
+            id_foto: 0,
+            ruta: "ruta1",
+            id_empleado: 1
         };
 
         chai.request(app)
-            .post('/municipio/')
+            .post('/foto/')
+            .send(emp)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('Status');
+                res.body.should.have.property('Status').eq('Foto Saved!');
+                done();
+            });
+    });
+});
+
+describe('/PUT/:id Photo', () => {
+    it('it sould put the photo with the id = id', (done) => {
+        const muni = {
+            ruta: "rutaNueva",
+            id_empleado: 1
+        };
+
+        chai.request(app)
+            .put('/foto/2')
             .send(muni)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Municipio Saved!');
+                res.body.should.have.property('Status').eq('Foto updated!');
                 done();
             });
     });
 });
 
-describe('/PUT/:id municipio', () => {
-    it('it sould put the municipio with the id = id', (done) => {
-        const muni = {
-            nombre: "mixco",
-        };
-
+describe('/DELETE/:id photo', () => {
+    it('it should delete the photo with the id = id', (done) => {
         chai.request(app)
-            .put('/municipio/1')
-            .send(muni)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Municipio updated!');
-                done();
-            });
-    });
-});
-
-describe('/DELETE/:id municipio', () => {
-    it('it should delete the municipio with the id = id', (done) => {
-        chai.request(app)
-            .delete('/municipio/3')
+            .delete('/foto/3')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Municipio deleted!');
+                res.body.should.have.property('status').eq('Foto deleted!');
                 done();
             });
     });

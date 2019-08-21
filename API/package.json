@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/index.js",
-        "test": "export NODE_ENV=test && mocha src/test/*-test.js",
+        "dev": "set NODE_ENV=test && nodemon src/index.js",
+        "test": "set NODE_ENV=test && mocha src/test/*-test.js", //Cambiar la palabra set por export si trabajan en linux
         "start": "node src/index.js"
     },
     "keywords": [],

@@ -8,7 +8,7 @@ router.get("/:id", empleado_controller.getOne);
 
 router.post("/", empleado_controller.insert);
 
-router.put("/:id", empleado_controller.update);
+router.put("/:id_empleado", empleado_controller.update);
 
 router.delete("/:id", empleado_controller.deleteEmpl);
 

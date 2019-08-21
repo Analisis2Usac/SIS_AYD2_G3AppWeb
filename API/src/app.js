@@ -8,6 +8,8 @@ const listserviceRoutes = require('./routes/list-service_routes');
 const subscriptionRoutes = require('./routes/subscription_routes');
 const empresaRoutes = require('./routes/empresa_routes');
 const empleadoRoutes = require('./routes/empleado_routes');
+const photoRoutes = require('./routes/photo_routes');
+const docRoutes = require('./routes/doc_routes');
 
 const app = express();
 
@@ -22,5 +24,7 @@ app.use("/lista-servicio", listserviceRoutes);
 app.use("/suscripcion", subscriptionRoutes);
 app.use("/empresa", empresaRoutes);
 app.use("/empleado", empleadoRoutes);
+app.use("/foto", photoRoutes);
+app.use("/documento", docRoutes);
 
 module.exports = app;

@@ -4,12 +4,12 @@ const listservice_controller = require('../controllers/list-service_controllers'
 
 router.get("/", listservice_controller.get);
 
-router.get("/:id", listservice_controller.getOne);
+router.get("/:id/:id2", listservice_controller.getOne);
 
 router.post("/", listservice_controller.insert);
 
-router.put("/:id", listservice_controller.update);
+router.put("/:id_empresa/:id_servicio", listservice_controller.update);
 
-router.delete("/:id", listservice_controller.deleteListServ);
+router.delete("/:id/:id2", listservice_controller.deleteListServ);
 
 module.exports = router;

@@ -8,7 +8,7 @@ router.get("/:id", subscription_controller.getOne);
 
 router.post("/", subscription_controller.insert);
 
-router.put("/:id", subscription_controller.update);
+router.put("/:id_suscripcion", subscription_controller.update);
 
 router.delete("/:id", subscription_controller.deleteSubs);
 
