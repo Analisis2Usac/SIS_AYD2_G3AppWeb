@@ -6,10 +6,10 @@ let db = '';
 
 if (env == "development") {
     mysqlConnection = mysql.createConnection({
-        host: 'localhost',
-        port: '3307',
-        user: 'root',
-        password: '1234',
+        host: 'mysql-4291-0.cloudclusters.net',
+        port: '10017',
+        user: 'root_ayd2',
+        password: 'ayd2_g3',
         database: 'sis_db'
     });
     db = 'production';
@@ -23,14 +23,6 @@ if (env == "development") {
     });
     db = 'test';
 }
-
-/*const mysqlConnection = mysql.createConnection({
-    host: 'mysql-4291-0.cloudclusters.net',
-    port: '10017',
-    user: 'root_ayd2',
-    password: 'ayd2_g3',
-    database: 'sis_db'
-});*/
 
 mysqlConnection.connect(function(err) {
     if (err) {
