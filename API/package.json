@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/index.js",
+        "dev": "set NODE_ENV=test && nodemon src/index.js",
+        "test": "set NODE_ENV=test && mocha src/test/*-test.js", //Cambiar la palabra set por export si trabajan en linux
         "start": "node src/index.js"
     },
     "keywords": [],
@@ -15,6 +16,9 @@
         "mysql": "^2.17.1"
     },
     "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "mocha": "^6.2.0",
         "nodemon": "^1.19.1"
     }
 }
