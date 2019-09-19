@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-/*describe('/GET subs', () => {
-    it('it should Get all subs', (done) => {
+describe('/GET list-services', () => {
+    it('it should Get all list-services', (done) => {
         chai.request(app)
-            .get('/suscripcion/')
+            .get('/lista-servicio/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,75 +18,68 @@ chai.use(chaiHttp);
     });
 });
 
-describe('/POST sub', () => {
-    it('it sould post the sub info', (done) => {
-        const sub = {
-            id_suscripcion: 0,
-            total: 150,
-            fecha_inicio: "2016-12-30",
-            fecha_final: "2016-01-30",
-            limite_servicios: 100,
-            id_empresa: 1
+/*describe('/POST lista-servicio', () => {
+    it('it sould post the lista-servicio info', (done) => {
+        const ls = {
+            id_empresa: 1,
+            id_servicio: 1,
+            precio: 2000
         };
 
         chai.request(app)
-            .post('/suscripcion/')
-            .send(sub)
+            .post('/lista-servicio/')
+            .send(ls)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Suscripción Saved!');
-                done();
-            });
-    });
-});
-
-describe('/GET one sub', () => {
-    it('it should Get one sub', (done) => {
-        chai.request(app)
-            .get('/suscripcion/1')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done();
-            });
-    });
-});
-
-describe('/PUT/:id sub', () => {
-    it('it sould put the sub with the id = id', (done) => {
-        const sub = {
-            total: 150,
-            fecha_inicio: "2016-12-30",
-            fecha_final: "2016-01-30",
-            limite_servicios: 1,
-            id_empresa: 1
-        };
-
-        chai.request(app)
-            .put('/suscripcion/2')
-            .send(sub)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Suscripción updated!');
-                done();
-            });
-    });
-});
-
-describe('/DELETE/:id sub', () => {
-    it('it should delete the sub with the id = id', (done) => {
-        chai.request(app)
-            .delete('/suscripcion/3')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Suscripción deleted!');
+                res.body.should.have.property('Status').eq('Lista Servicio Saved!');
                 done();
             });
     });
 });*/
+
+describe('/GET one lista-servicio', () => {
+    it('it should Get one lista-servicio', (done) => {
+        chai.request(app)
+            .get('/lista-servicio/1/1')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                done();
+            });
+    });
+});
+
+describe('/PUT/:id lista-servicio', () => {
+    it('it sould put the lista-servicio with the id = id', (done) => {
+        const sub = {
+            precio: 100
+        };
+
+        chai.request(app)
+            .put('/lista-servicio/1/1')
+            .send(sub)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('Status');
+                res.body.should.have.property('Status').eq('Lista Servicio updated!');
+                done();
+            });
+    });
+});
+
+describe('/DELETE/:id lista-servicio', () => {
+    it('it should delete the lista-servicio with the id = id', (done) => {
+        chai.request(app)
+            .delete('/lista-servicio/2/2')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('status');
+                res.body.should.have.property('status').eq('Lista Servicio deleted!');
+                done();
+            });
+    });
+});
