@@ -22,7 +22,7 @@ describe('/POST cat', () => {
     it('it sould post the cat info', (done) => {
         const cat = {
             id_categoria: 0,
-            nombre: "cat1",
+            nombre: "nombre_prueba",
         };
 
         chai.request(app)
@@ -53,11 +53,11 @@ describe('/GET one cat', () => {
 describe('/PUT/:id doc', () => {
     it('it sould put the doc with the id = id', (done) => {
         const cat = {
-            nombre: "catNueva"
+            nombre: "nombre_modificado"
         };
 
         chai.request(app)
-            .put('/categoria/2')
+            .put('/categoria/1')
             .send(cat)
             .end((err, res) => {
                 res.should.have.status(200);

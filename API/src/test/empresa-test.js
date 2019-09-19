@@ -6,7 +6,7 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Empresa', () => {
+/*describe('Empresa', () => {
     it('it sould post the empresa info', (done) => {
         const empresa = {
             id_empresa: 0,
@@ -99,4 +99,4 @@ describe('/DELETE/:id empresa', () => {
                 done();
             });
     });
-});
+});*/

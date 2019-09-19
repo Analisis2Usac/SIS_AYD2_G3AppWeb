@@ -6,7 +6,7 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET municipio', () => {
+/*describe('/GET municipio', () => {
     it('it should Get all municipios', (done) => {
         chai.request(app)
             .get('/municipio/')
@@ -81,4 +81,4 @@ describe('/DELETE/:id municipio', () => {
                 done();
             });
     });
-});
+});*/

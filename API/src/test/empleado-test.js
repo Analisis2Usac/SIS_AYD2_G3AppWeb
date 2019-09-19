@@ -6,7 +6,7 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET Empleado', () => {
+/*describe('/GET Empleado', () => {
     it('it should Get all empleados', (done) => {
         chai.request(app)
             .get('/empleado/')
@@ -83,4 +83,4 @@ describe('/DELETE/:id empleado', () => {
                 done();
             });
     });
-});
+});*/
