@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET cate', () => {
-    it('it should Get all cats', (done) => {
+describe('/GET municipio', () => {
+    it('it should Get all municipios', (done) => {
         chai.request(app)
-            .get('/categoria/')
+            .get('/municipio/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,30 +18,30 @@ describe('/GET cate', () => {
     });
 });
 
-describe('/POST cat', () => {
-    it('it sould post the cat info', (done) => {
-        const cat = {
-            id_categoria: 0,
-            nombre: "cat1",
+describe('/POST municipio', () => {
+    it('it sould post the municipio info', (done) => {
+        const muni = {
+            id: 0,
+            nombre: "nombre_municipio",
         };
 
         chai.request(app)
-            .post('/categoria/')
-            .send(cat)
+            .post('/municipio/')
+            .send(muni)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Categoría Saved!');
+                res.body.should.have.property('Status').eq('Municipio Saved!');
                 done();
             });
     });
 });
 
-describe('/GET one cat', () => {
-    it('it should Get one cat', (done) => {
+describe('/GET one municipio', () => {
+    it('it should Get one municipio', (done) => {
         chai.request(app)
-            .get('/categoria/1')
+            .get('/municipio/1')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
@@ -50,34 +50,34 @@ describe('/GET one cat', () => {
     });
 });
 
-describe('/PUT/:id doc', () => {
-    it('it sould put the doc with the id = id', (done) => {
-        const cat = {
-            nombre: "catNueva"
+describe('/PUT/:id municipio', () => {
+    it('it sould put the municipio with the id = id', (done) => {
+        const muni = {
+            nombre: "nombre_modificado",
         };
 
         chai.request(app)
-            .put('/categoria/2')
-            .send(cat)
+            .put('/municipio/1')
+            .send(muni)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Categoría updated!');
+                res.body.should.have.property('Status').eq('Municipio updated!');
                 done();
             });
     });
 });
 
-describe('/DELETE/:id cat', () => {
-    it('it should delete the cat with the id = id', (done) => {
+describe('/DELETE/:id municipio', () => {
+    it('it should delete the municipio with the id = id', (done) => {
         chai.request(app)
-            .delete('/categoria/3')
+            .delete('/municipio/3')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Categoría deleted!');
+                res.body.should.have.property('status').eq('Municipio deleted!');
                 done();
             });
     });

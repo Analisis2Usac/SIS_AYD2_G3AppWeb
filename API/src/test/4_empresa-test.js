@@ -10,15 +10,15 @@ describe('Empresa', () => {
     it('it sould post the empresa info', (done) => {
         const empresa = {
             id_empresa: 0,
-            nit: 2,
-            nombre: "e1",
-            direccion: "d1",
+            nit: null,
+            nombre: "nombre_empresa",
+            direccion: "direccion",
             telefono: "1122",
             zona: 1,
             latitud: 10.11,
             longitud: 10.11,
             id_municipio: 1,
-            email: "e2",
+            email: null,
             password: "1234"
         };
 
@@ -62,15 +62,15 @@ describe('/GET Empresa', () => {
 describe('/PUT/:id empresa', () => {
     it('it sould put the empresa with the id = id', (done) => {
         const empresa = {
-            nit: 3,
-            nombre: "e1",
+            nit: null,
+            nombre: "nombre_modificado",
             direccion: "d1",
             telefono: "1122",
             zona: 1,
             latitud: 10.11,
             longitud: 10.11,
             id_municipio: 1,
-            email: "em",
+            email: null,
             password: "1234"
         };
 

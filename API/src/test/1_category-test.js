@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET Empleado', () => {
-    it('it should Get all empleados', (done) => {
+describe('/GET cate', () => {
+    it('it should Get all cats', (done) => {
         chai.request(app)
-            .get('/empleado/')
+            .get('/categoria/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,68 +18,66 @@ describe('/GET Empleado', () => {
     });
 });
 
-describe('/GET one Empleado', () => {
-    it('it should Get one empleado', (done) => {
-        chai.request(app)
-            .get('/empleado/1')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done();
-            });
-    });
-});
-
-describe('/POST Empleado', () => {
-    it('it sould post the empleado info', (done) => {
-        const emp = {
-            id_empleado: 0,
-            id_empresa: 1,
-            email: "email1"
+describe('/POST cat', () => {
+    it('it sould post the cat info', (done) => {
+        const cat = {
+            id_categoria: 0,
+            nombre: "nombre_prueba",
         };
 
         chai.request(app)
-            .post('/empleado/')
-            .send(emp)
+            .post('/categoria/')
+            .send(cat)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Empleado Saved!');
+                res.body.should.have.property('Status').eq('Categoría Saved!');
                 done();
             });
     });
 });
 
-describe('/PUT/:id Empleado', () => {
-    it('it sould put the empleado with the id = id', (done) => {
-        const muni = {
-            id_empresa: 1,
-            email: "email1"
+describe('/GET one cat', () => {
+    it('it should Get one cat', (done) => {
+        chai.request(app)
+            .get('/categoria/1')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                done();
+            });
+    });
+});
+
+describe('/PUT/:id doc', () => {
+    it('it sould put the doc with the id = id', (done) => {
+        const cat = {
+            nombre: "nombre_modificado"
         };
 
         chai.request(app)
-            .put('/empleado/2')
-            .send(muni)
+            .put('/categoria/1')
+            .send(cat)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Empleado updated!');
+                res.body.should.have.property('Status').eq('Categoría updated!');
                 done();
             });
     });
 });
 
-describe('/DELETE/:id empleado', () => {
-    it('it should delete the empleado with the id = id', (done) => {
+describe('/DELETE/:id cat', () => {
+    it('it should delete the cat with the id = id', (done) => {
         chai.request(app)
-            .delete('/empleado/3')
+            .delete('/categoria/3')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Empleado deleted!');
+                res.body.should.have.property('status').eq('Categoría deleted!');
                 done();
             });
     });

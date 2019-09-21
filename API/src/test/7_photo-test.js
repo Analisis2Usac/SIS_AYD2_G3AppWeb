@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET list-services', () => {
-    it('it should Get all list-services', (done) => {
+describe('/GET Photo', () => {
+    it('it should Get all photos', (done) => {
         chai.request(app)
-            .get('/lista-servicio/')
+            .get('/foto/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,67 +18,68 @@ describe('/GET list-services', () => {
     });
 });
 
-describe('/POST lista-servicio', () => {
-    it('it sould post the lista-servicio info', (done) => {
-        const ls = {
-            id_empresa: 5,
-            id_servicio: 1,
-            precio: 2000
+/*describe('/GET one Photo', () => {
+    it('it should Get one foto', (done) => {
+        chai.request(app)
+            .get('/foto/1')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                done();
+            });
+    });
+});
+
+describe('/POST Photo', () => {
+    it('it sould post the photo info', (done) => {
+        const emp = {
+            id_foto: 0,
+            ruta: "ruta1",
+            id_empleado: 1
         };
 
         chai.request(app)
-            .post('/lista-servicio/')
-            .send(ls)
+            .post('/foto/')
+            .send(emp)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Lista Servicio Saved!');
+                res.body.should.have.property('Status').eq('Foto Saved!');
                 done();
             });
     });
 });
 
-describe('/GET one lista-servicio', () => {
-    it('it should Get one lista-servicio', (done) => {
-        chai.request(app)
-            .get('/lista-servicio/1/1')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done();
-            });
-    });
-});
-
-describe('/PUT/:id lista-servicio', () => {
-    it('it sould put the lista-servicio with the id = id', (done) => {
-        const sub = {
-            precio: 100
+describe('/PUT/:id Photo', () => {
+    it('it sould put the photo with the id = id', (done) => {
+        const muni = {
+            ruta: "rutaNueva",
+            id_empleado: 1
         };
 
         chai.request(app)
-            .put('/lista-servicio/1/2')
-            .send(sub)
+            .put('/foto/2')
+            .send(muni)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Lista Servicio updated!');
+                res.body.should.have.property('Status').eq('Foto updated!');
                 done();
             });
     });
-});
+});*/
 
-describe('/DELETE/:id lista-servicio', () => {
-    it('it should delete the lista-servicio with the id = id', (done) => {
+describe('/DELETE/:id photo', () => {
+    it('it should delete the photo with the id = id', (done) => {
         chai.request(app)
-            .delete('/lista-servicio/2/2')
+            .delete('/foto/3')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Lista Servicio deleted!');
+                res.body.should.have.property('status').eq('Foto deleted!');
                 done();
             });
     });

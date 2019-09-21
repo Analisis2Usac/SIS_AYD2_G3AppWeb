@@ -6,10 +6,10 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('/GET servicio', () => {
-    it('it should Get all servs', (done) => {
+describe('/GET doc', () => {
+    it('it should Get all docs', (done) => {
         chai.request(app)
-            .get('/servicio/')
+            .get('/documento/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('array');
@@ -18,31 +18,31 @@ describe('/GET servicio', () => {
     });
 });
 
-describe('/POST serv', () => {
-    it('it sould post the serv info', (done) => {
-        const serv = {
-            id_servicio: 0,
-            nombre: "serv1",
-            id_categoria: 1
+/*describe('/POST doc', () => {
+    it('it sould post the doc info', (done) => {
+        const doc = {
+            id_documento: 0,
+            documento: "nombre_documento",
+            id_empleado: 1
         };
 
         chai.request(app)
-            .post('/servicio/')
-            .send(serv)
+            .post('/documento/')
+            .send(doc)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Servicio Saved!');
+                res.body.should.have.property('Status').eq('Documento Saved!');
                 done();
             });
     });
 });
 
-describe('/GET one serv', () => {
-    it('it should Get one serv', (done) => {
+/*describe('/GET one doc', () => {
+    it('it should Get one doc', (done) => {
         chai.request(app)
-            .get('/servicio/1')
+            .get('/documento/1')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
@@ -51,35 +51,35 @@ describe('/GET one serv', () => {
     });
 });
 
-describe('/PUT/:id serv', () => {
-    it('it sould put the serv with the id = id', (done) => {
-        const serv = {
-            nombre: "servNueva",
-            id_categoria: 1
+describe('/PUT/:id doc', () => {
+    it('it sould put the doc with the id = id', (done) => {
+        const doc = {
+            documento: "rutaNueva",
+            id_empleado: 1
         };
 
         chai.request(app)
-            .put('/servicio/2')
-            .send(serv)
+            .put('/documento/2')
+            .send(doc)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
-                res.body.should.have.property('Status').eq('Servicio updated!');
+                res.body.should.have.property('Status').eq('Documento updated!');
                 done();
             });
     });
-});
+});*/
 
-describe('/DELETE/:id serv', () => {
-    it('it should delete the serv with the id = id', (done) => {
+describe('/DELETE/:id doc', () => {
+    it('it should delete the doc with the id = id', (done) => {
         chai.request(app)
-            .delete('/servicio/3')
+            .delete('/documento/3')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('status');
-                res.body.should.have.property('status').eq('Servicio deleted!');
+                res.body.should.have.property('status').eq('Documento deleted!');
                 done();
             });
     });
