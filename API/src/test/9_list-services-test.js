@@ -37,7 +37,7 @@ describe('/GET list-services', () => {
                 done();
             });
     });
-});*/
+});
 
 describe('/GET one lista-servicio', () => {
     it('it should Get one lista-servicio', (done) => {
@@ -49,7 +49,7 @@ describe('/GET one lista-servicio', () => {
                 done();
             });
     });
-});
+});*/
 
 describe('/PUT/:id lista-servicio', () => {
     it('it sould put the lista-servicio with the id = id', (done) => {

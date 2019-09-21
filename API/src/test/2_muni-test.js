@@ -18,18 +18,6 @@ describe('/GET municipio', () => {
     });
 });
 
-describe('/GET one municipio', () => {
-    it('it should Get one municipio', (done) => {
-        chai.request(app)
-            .get('/municipio/1')
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done();
-            });
-    });
-});
-
 describe('/POST municipio', () => {
     it('it sould post the municipio info', (done) => {
         const muni = {
@@ -45,6 +33,18 @@ describe('/POST municipio', () => {
                 res.body.should.be.a('object');
                 res.body.should.have.property('Status');
                 res.body.should.have.property('Status').eq('Municipio Saved!');
+                done();
+            });
+    });
+});
+
+describe('/GET one municipio', () => {
+    it('it should Get one municipio', (done) => {
+        chai.request(app)
+            .get('/municipio/1')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
                 done();
             });
     });
