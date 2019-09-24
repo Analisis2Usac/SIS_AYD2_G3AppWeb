@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "set NODE_ENV=test && nodemon src/index.js",
         "test2" : "set NODE_ENV=development && mocha src/test/*-test.js",
+        "testJenkins": "set NODE_ENV=development && mocha src/test/5_empleado-test.js"
         "test": "set NODE_ENV=test && mocha src/test/*-test.js",
         "start": "node src/index.js"
     },
