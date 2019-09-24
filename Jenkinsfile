@@ -7,7 +7,7 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/Analisis2Usac/SIS_AYD2_G3AppWeb/t'
+        git 'https://github.com/Analisis2Usac/SIS_AYD2_G3AppWeb'
       }
     }
       dir("API") {
