@@ -29,7 +29,7 @@ mysqlConnection.connect(function(err) {
         console.log(err);
         return;
     } else {
-        console.log('DB is connected! ' + db);
+       // console.log('DB is connected! ' + db);
     }
 });
 
