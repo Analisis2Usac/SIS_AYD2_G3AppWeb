@@ -84,6 +84,7 @@ pipeline {
           steps {
                
                 sshagent(['dev-server']) {
+			sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-17-131-231.us-east-2.compute.amazonaws.com sudo docker rm --force app'
                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-17-131-231.us-east-2.compute.amazonaws.com sudo docker run -p 80:4000 -d -name app jorged104/appanalisis'
 
                 }                                                     
