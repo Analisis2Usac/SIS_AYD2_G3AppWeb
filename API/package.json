@@ -4,17 +4,25 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/index.js",
+        "dev": "set NODE_ENV=test && nodemon src/index.js",
+        "test2" : "set NODE_ENV=development && mocha src/test/*-test.js",
+        "testJenkins": "set NODE_ENV=development && mocha src/test/5_empleado-test.js",
+        "test": "set NODE_ENV=development && ./node_modules/.bin/mocha --recursive --exit -R xunit ./src/testmocha/ > test-reports.xml",
         "start": "node src/index.js"
     },
     "keywords": [],
     "author": "",
+    "__comment": "cambiar el comando set por export si trabajan en linux",
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1",
         "mysql": "^2.17.1"
     },
     "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "mocha": "^6.2.0",
+        "mocha-junit-reporter": "^1.23.1",
         "nodemon": "^1.19.1"
     }
 }
