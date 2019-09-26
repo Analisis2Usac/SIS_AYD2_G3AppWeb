@@ -10,6 +10,6 @@ router.post("/", video_controller.insert);
 
 router.put("/:id", video_controller.update);
 
-router.delete("/:id", video_controller.deleteUsu);
+router.delete("/:id", video_controller.deleteVideo);
 
 module.exports = router;
