@@ -15,11 +15,11 @@ if (env == "development") {
     db = 'production';
 } else {
     mysqlConnection = mysql.createConnection({
-        host: 'localhost',
-        port: '3306',
-        user: 'root',
-        password: '1234',
-        database: 'sis_db_test'
+        host: 'mysql-4291-0.cloudclusters.net',
+        port: '10017',
+        user: 'root_ayd2',
+        password: 'ayd2_g3',
+        database: 'sis_db'
     });
     db = 'test';
 }
@@ -29,7 +29,7 @@ mysqlConnection.connect(function(err) {
         console.log(err);
         return;
     } else {
-       // console.log('DB is connected! ' + db);
+        // console.log('DB is connected! ' + db);
     }
 });
 
