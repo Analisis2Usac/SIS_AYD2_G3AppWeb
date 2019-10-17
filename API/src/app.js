@@ -1,9 +1,8 @@
 const express = require('express');
 const { json } = require('express');
+
 const path = require('path');
 const bodyParser = require('body-parser');
-
-
 
 
 const muniRoutes = require('./routes/municipio_routes');
@@ -21,6 +20,7 @@ const empresaRoutes = require('./routes/empresa_routes');
 const empleadoRoutes = require('./routes/empleado_routes');
 const photoRoutes = require('./routes/photo_routes');
 const docRoutes = require('./routes/doc_routes');
+
 const sitioWeb = require('./routes/sitio_routes');
 
 const app = express();
@@ -32,6 +32,10 @@ app.set('view engine', 'ejs');  //decimos que usaremos el motor de plantillas ej
 
 //static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+=======
+
+const app = express();
 
 
 //middlewares
@@ -54,5 +58,6 @@ app.use("/empleado", empleadoRoutes);
 app.use("/foto", photoRoutes);
 app.use("/documento", docRoutes);
 app.use(require('./routes/sitio_routes'));
+
 
 module.exports = app;
