@@ -23,6 +23,11 @@ const docRoutes = require('./routes/doc_routes');
 
 const sitioWeb = require('./routes/sitio_routes');
 
+
+
+
+
+
 const app = express();
 //settings
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,11 +37,6 @@ app.set('view engine', 'ejs');  //decimos que usaremos el motor de plantillas ej
 
 //static files
 app.use(express.static(path.join(__dirname, 'public')));
-
-=======
-
-const app = express();
-
 
 //middlewares
 app.use(json());

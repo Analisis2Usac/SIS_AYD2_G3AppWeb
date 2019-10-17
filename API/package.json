@@ -9,7 +9,7 @@
         "testJenkins": "set NODE_ENV=development && mocha src/test/5_empleado-test.js",
         "test": "set NODE_ENV=development && ./node_modules/.bin/mocha --recursive --exit -R xunit ./src/testmocha/ > test-reports.xml",
         "start": "node src/index.js",
-        "dev2":"nodemon src/index.js"
+        "dev2": "nodemon src/index.js"
     },
     "keywords": [],
     "author": "",
