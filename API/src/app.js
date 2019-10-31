@@ -1,8 +1,10 @@
 const express = require('express');
 const { json } = require('express');
+require('dotenv').config() //variables de entorno
 
 const path = require('path');
 const bodyParser = require('body-parser');
+const morgan=require('morgan');
 
 
 const muniRoutes = require('./routes/municipio_routes');
@@ -30,6 +32,7 @@ const sitioWeb = require('./routes/sitio_routes');
 
 const app = express();
 //settings
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine('html', require('ejs').renderFile);//decimos que usaremos la sintaxis y extension html , pero con el motor de plantillas ejs incluido
 app.set ('views',path.join(__dirname,'views'));//establecemos la ubicacion de la carpeta view de nuestro proyecto
@@ -40,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //middlewares
 app.use(json());
+
 
 //routes
 app.use("/municipio", muniRoutes);
