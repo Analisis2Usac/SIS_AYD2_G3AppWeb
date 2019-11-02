@@ -14,6 +14,17 @@ const get = (req, res) => {
 
 const getOne = (req, res) => {
     const { id } = req.params;
+    mysqlConnection.query('SELECT * FROM servicio WHERE id_servicio = ?', [id], (err, rows, fields) => {
+        if (!err) {
+            res.json(rows[0]);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
+const getOneCat = (req, res) => {
+    const { id } = req.params;
     mysqlConnection.query('SELECT * FROM servicio WHERE id_categoria = ?', [id], (err, rows, fields) => {
         if (!err) {
             res.json(rows[0]);
@@ -67,6 +78,7 @@ const deleteServ = (req, res) => {
 module.exports = {
     get: get,
     getOne: getOne,
+    getOneCat: getOneCat,
     insert: insert,
     update: update,
     deleteServ: deleteServ
