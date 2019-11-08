@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Categorias - SIS</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <style>
+        a:link {
+            color: rgb(33, 37, 41);
+            text-decoration-line: none;
+        }
+
+        a:hover {
+            color: rgb(59, 153, 224);
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <%include partials/navigation.html%>
+
+    <main class="page service-page">
+        <section class="clean-block clean-services dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h1 class="text-info"
+                        style="font-style: normal;font-family: Montserrat, sans-serif;color: #3b99e0;">Categorías</h1>
+                    <div class="row">
+                        <div
+                            class="col-md-6 col-lg-7 col-xl-6 d-md-flex d-lg-flex d-xl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center">
+                            <p class="d-md-flex" style="font-size: 21px;">Aquí podrás encontrar tus servicios de una
+                                manera mas ordenada y clasificada.</p>
+                        </div>
+                        <div class="col d-xl-flex justify-content-xl-center align-items-xl-center"><img
+                                class="d-xl-flex" src="/assets/img/undraw_schedule_pnbk.svg" style="width: 300px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-xl-flex">
+
+
+                    <% for(var i=0; i < categoria.length; i++) { %>
+
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <a href="/category-page/<%=categoria[i].id_categoria%>" target="_blank">
+                            <div class="card shadow" data-bs-hover-animate="pulse"><img
+                                    class=" card-img-top w-100 d-block" src="<%=categoria[i].ruta%>">
+                                <div class=" card-body">
+                                    <h4 class=" text-truncate card-title"><%=categoria[i].nombre%></h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <% } %>
+
+                    <!---->
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <%include partials/footer.html%>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bs-animation.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/assets/js/smoothproducts.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+</body>
+
+</html>
