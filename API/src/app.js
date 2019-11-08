@@ -23,7 +23,7 @@ const empleadoRoutes = require('./routes/empleado_routes');
 const photoRoutes = require('./routes/photo_routes');
 const docRoutes = require('./routes/doc_routes');
 
-const sitioWeb = require('./routes/sitio_routes');
+//const sitioWeb = require('./routes/sitio_routes');
 
 
 

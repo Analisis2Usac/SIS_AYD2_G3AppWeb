@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const sitio_controller = require('../controllers/sitio_controller');
+const controller_register = require('../controllers/controller_register');
 const cargar_vistas = require('../controllers/carga_datos_a_vista');
 
 
@@ -22,16 +22,9 @@ router.get('/login', (req, res) => {
     res.render('login.html');
 });
 
-
 router.get('/register-ind', (req, res) => {
     res.render('registration-individual.html');
 });
-
-router.get('/catalog-page', (req, res) => {
-    res.render('catalog-page.html');
-});
-
-router.get('/category-page',cargar_vistas.MostrarCategoria);
 
 router.get('/register-comp', (req, res) => {
     res.render('registration-company.html');
@@ -41,7 +34,38 @@ router.get('/registration', (req, res) => {
     res.render('registration.html');
 });
 
-router.post('/createRegister',sitio_controller.crearRegistro);
+router.get('/catalog-page/', (req, res) => {
+    res.render('catalog-page.html');
+});
+
+router.get('/pricing', (req, res) => {
+    res.render('pricing.html');
+});
+
+
+router.get('/about-us', (req, res) => {
+    res.render('about-us.html');
+});
+
+router.get('/category_page', (req, res) => {
+    res.render('category_page');
+});
+
+router.get('/category-page/:id', (req, res) => {
+
+    res.send(req.params.id);
+});
+
+
+
+
+router.post('/createRegister',controller_register.crearRegistroComprador);
+router.post('/createRegisterInd',controller_register.crearRegistroIndividual);
+router.post('/createRegisterComp',controller_register.crearRegistroCompany);
+
+
+router.get('/category-page',cargar_vistas.MostrarCategoria);
+
 
 module.exports = router;
 

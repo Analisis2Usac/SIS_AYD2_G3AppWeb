@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
     
 </head>
@@ -19,15 +20,23 @@
 <body>
         <%include partials/navigation.html%>
     
-    <div class="alert alert-info text-center" role="alert" style="margin-top: -8px;padding-bottom: 18px;margin-bottom: -29px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center" style="margin-bottom: 37px;"><strong>¿Deseas ofrecer tu servicio?</strong></h2>
-                <p class="text-center">Si deseas inscribir tu servicio y que se muestre a miles de personas , puedes hacerlo sin ningun problema. <strong>Recuerda antes darle un ojo a las </strong><a href="pricing.html"><strong>tarifas</strong></a><strong>(el primer mes es gratis).</strong></p>
+        <div class="alert alert-light text-center text-dark bg-warning border rounded  shadow d-xl-flex m-auto align-items-xl-start" role="alert" data-bs-hover-animate="pulse" style="margin-top: -8px;padding-bottom: 18px;margin-bottom: -29px;width: 908px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <div class="container">
+                <div class="intro">
+                    <h1 class="display-4 text-center text-light justify-content-center align-items-center" style="margin-bottom: 37px;font-size: 42px;"><strong>¿Deseas ofrecer tu servicio?</strong></h1>
+                    <p class="text-center" style="font-size: 18px;">¿Brindas algún servicio? ¿Quieres ser conocido y contratado por miles de personas? ¿Deseas aumentar tus ingresos? &nbsp;<strong>¡INSCRíBETE HOY MISMO!</strong>&nbsp;, puedes hacerlo sin ningun problema. <strong>Recuerda antes darle un ojo a nuestras&nbsp;</strong>
+                        <a
+                            href="pricing"><strong>tarifas&nbsp;</strong></a><strong>(el primer mes es gratis).</strong></p>
+                </div>
+                <div class="d-xl-flex justify-content-xl-end align-items-xl-center buttons"><a class="btn btn-primary btn-lg" role="button" href="register-ind"  style="margin: 5px;">Soy un individuo</a><a class="btn btn-light btn-lg" role="button" href="register-comp"  style="margin: 5px;">Soy una empresa</a>
+                    <img
+                        class="m-auto" src="assets/img/undraw_forgot_password_gi2d.svg" style="width: 200px;margin-left: 200px;"></div>
             </div>
-            <div class="buttons"><a class="btn btn-primary" role="button" href="registration-individual.html" style="margin: 5px;">Soy un individuo</a><a class="btn btn-light" role="button" href="registration-company.html" style="margin: 5px;">Soy una empresa</a></div>
         </div>
-    </div>
+
+
+
+    
     <div class="register-photo" style="margin-top: 0px;">
         <div class="form-container">
             <div class="image-holder" style="background-image: url(&quot;/assets/img/lake-atitlan.jpg&quot;);"></div>
@@ -44,11 +53,12 @@
                 <div class="form-group">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" required><a href="terms&policies" target="_blank" class="already">He leído y acepto los <span style="text-decoration: underline;">términos y condiciones de uso</span></a></label></div>
                 </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Registrarme</button></div><a href="login" class="already">¿Ya tienes una cuenta?<span style="text-decoration: underline;"> Entre aquí.</span><br></a></form>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Registrarme</button></div><a href="login" class="already">¿Ya tienes una cuenta para poder comprar?<span style="text-decoration: underline;"> Entre aquí.</span><br></a></form>
         </div>
     </div>
     <%include partials/footer.html%>
     <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bs-animation.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="/assets/js/script.min.js"></script>
