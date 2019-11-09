@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controller_register = require('../controllers/controller_register');
 const cargar_vistas = require('../controllers/carga_datos_a_vista');
+const controller_login = require('../controllers/controller_login');
 
 
 router.get('/', (req, res) => {
@@ -21,6 +22,9 @@ router.get('/prueba', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login.html');
 });
+
+
+
 
 router.get('/register-ind', (req, res) => {
     res.render('registration-individual.html');
@@ -63,7 +67,9 @@ router.post('/createRegister',controller_register.crearRegistroComprador);
 router.post('/createRegisterInd',controller_register.crearRegistroIndividual);
 router.post('/createRegisterComp',controller_register.crearRegistroCompany);
 
-
+router.post('/login', (req, res) => {
+    res.render('login.html');
+});
 router.get('/category-page',cargar_vistas.MostrarCategoria);
 
 
