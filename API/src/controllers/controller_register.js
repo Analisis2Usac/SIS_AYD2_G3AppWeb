@@ -5,7 +5,7 @@ const host = process.env.HOST;
 const port = process.env.PORT;
 
 
-const crearRegistro = (req, res) => {
+const crearRegistroComprador = (req, res) => {
     var email = req.body.email;
     var password = req.body.password;
     var passwordconfirm = req.body.passwordconfirm;
@@ -101,6 +101,17 @@ const crearRegistro = (req, res) => {
 
 
 
+const crearRegistroIndividual = (req, res) => {
+    res.send('Registro contador');
+}
+
+
+const crearRegistroCompany = (req, res) => {
+    res.send('Registro Company');
+}
+
+
+
 function Alerta(title, message, enlace, button) {
     var error = {
         title: "Error en la info.",
@@ -113,5 +124,7 @@ function Alerta(title, message, enlace, button) {
 
 
 module.exports = {
-    crearRegistro: crearRegistro   
+    crearRegistroComprador: crearRegistroComprador,
+    crearRegistroIndividual:crearRegistroIndividual,
+    crearRegistroCompany:crearRegistroCompany
 }
