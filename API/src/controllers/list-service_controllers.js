@@ -12,6 +12,18 @@ const get = (req, res) => {
     return mysqlConnection;
 }
 
+const getFromEmp = (req, res) => {
+    mysqlConnection.query('SELECT * FROM lista_servicio WHERE id_empresa = ? ', [id], (err, rows, fields) => {
+        if (!err) {
+            res.json(rows);
+        } else {
+            console.log(err);
+        }
+    });
+
+    return mysqlConnection;
+}
+
 const getOne = (req, res) => {
     const { id, id2 } = req.params;
     mysqlConnection.query('SELECT * FROM lista_servicio WHERE id_empresa = ? AND id_servicio = ?', [id, id2], (err, rows, fields) => {
@@ -24,11 +36,11 @@ const getOne = (req, res) => {
 }
 
 const insert = (req, res) => {
-    const { id_empresa, id_servicio, precio } = req.body;
+    const { id_empresa, id_servicio, precio, descripcion } = req.body;
 
-    const query = `CALL list_serviceAdd(?, ?, ?)`;
+    const query = `CALL list_serviceAdd(?, ?, ?, ?)`;
 
-    mysqlConnection.query(query, [id_empresa, id_servicio, precio], (err, rows, fields) => {
+    mysqlConnection.query(query, [id_empresa, id_servicio, precio, descripcion], (err, rows, fields) => {
         if (!err) {
             res.json({ Status: 'Lista Servicio Saved!' });
         } else {
@@ -38,12 +50,12 @@ const insert = (req, res) => {
 }
 
 const update = (req, res) => {
-    const { precio } = req.body;
+    const { precio, descripcion } = req.body;
     const { id_empresa, id_servicio } = req.params;
 
-    const query = 'CALL list_serviceEdit (?, ?, ?)';
+    const query = 'CALL list_serviceEdit (?, ?, ?, ?)';
 
-    mysqlConnection.query(query, [id_empresa, id_servicio, precio], (err, rows, fields) => {
+    mysqlConnection.query(query, [id_empresa, id_servicio, precio, descripcion], (err, rows, fields) => {
         if (!err) {
             res.json({ Status: 'Lista Servicio updated!' });
         } else {
@@ -66,6 +78,7 @@ const deleteListServ = (req, res) => {
 
 module.exports = {
     get: get,
+    getFromEmp: getFromEmp,
     getOne: getOne,
     insert: insert,
     update: update,
