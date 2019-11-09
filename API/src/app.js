@@ -23,7 +23,12 @@ const empleadoRoutes = require('./routes/empleado_routes');
 const photoRoutes = require('./routes/photo_routes');
 const docRoutes = require('./routes/doc_routes');
 
+
 //const sitioWeb = require('./routes/sitio_routes');
+
+const apiLogin = require('./routes/loginAPI_routes');
+const sitioWeb = require('./routes/sitio_routes');
+
 
 
 
@@ -61,6 +66,7 @@ app.use("/empresa", empresaRoutes);
 app.use("/empleado", empleadoRoutes);
 app.use("/foto", photoRoutes);
 app.use("/documento", docRoutes);
+app.use("/loginAPI",apiLogin);
 app.use(require('./routes/sitio_routes'));
 
 

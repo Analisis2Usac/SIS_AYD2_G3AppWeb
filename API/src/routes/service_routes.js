@@ -6,6 +6,8 @@ router.get("/", service_controller.get);
 
 router.get("/:id", service_controller.getOne);
 
+router.get("/Cate/:id", service_controller.getOneCat);
+
 router.post("/", service_controller.insert);
 
 router.put("/:id_servicio", service_controller.update);

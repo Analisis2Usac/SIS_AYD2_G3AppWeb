@@ -41,5 +41,5 @@ Ahora ingresa la página de gitlab (https://github.com/magicluis/AYD2_G3AppDeskt
   * Para borrar la rama local, tienes que moverte de la rama primero porque supongo que estas en la rama para saberlo hacer `$ git branch`
   * Muevete con `$ git checkout develop`
   * Sincroniza `$ git pull`
-  * Ahora si `$ git branch -d develop-herberth-horarios`
+  * Ahora si `$ git branch -d develop-herberth-horarios
   * Y vuelve a hacer todos los pasos para volver a agregar otra caracteristica desde "Pasos necesarios para contribuir"
