@@ -24,11 +24,11 @@ const getOne = (req, res) => {
 }
 
 const insert = (req, res) => {
-    const { id_categoria, nombre } = req.body;
+    const { id_categoria, nombre, ruta } = req.body;
 
-    const query = `CALL categoryAddOrEdit(?, ?)`;
+    const query = `CALL categoryAddOrEdit(?, ?, ?)`;
 
-    mysqlConnection.query(query, [id_categoria, nombre], (err, rows, fields) => {
+    mysqlConnection.query(query, [id_categoria, nombre, ruta], (err, rows, fields) => {
         if (!err) {
             res.json({ Status: 'Categoría Saved!' });
         } else {
@@ -38,12 +38,12 @@ const insert = (req, res) => {
 }
 
 const update = (req, res) => {
-    const { nombre } = req.body;
+    const { nombre, ruta } = req.body;
     const { id_categoria } = req.params;
 
-    const query = 'CALL categoryAddOrEdit (?, ?)';
+    const query = 'CALL categoryAddOrEdit (?, ?, ?)';
 
-    mysqlConnection.query(query, [id_categoria, nombre], (err, rows, fields) => {
+    mysqlConnection.query(query, [id_categoria, nombre, ruta], (err, rows, fields) => {
         if (!err) {
             res.json({ Status: 'Categoría updated!' });
         } else {

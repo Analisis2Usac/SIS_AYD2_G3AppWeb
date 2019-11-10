@@ -1,5 +1,0 @@
-<testsuite name="Mocha Tests" tests="2" failures="0" errors="1" skipped="0" timestamp="Wed, 25 Sep 2019 02:19:51 GMT" time="3.064">
-<testcase classname="/GET Empleado" name="it should Get all empleados" time="2.006"><failure>Timeout of 2000ms exceeded. For async tests and hooks, ensure &#x22;done()&#x22; is called; if returning a Promise, ensure it resolves. (/home/nowell/Documents/Analisis/SIS_AYD2_G3AppWeb/API/src/testmocha/1_empleado-test.js)
-Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure &#x22;done()&#x22; is called; if returning a Promise, ensure it resolves. (/home/nowell/Documents/Analisis/SIS_AYD2_G3AppWeb/API/src/testmocha/1_empleado-test.js)</failure></testcase>
-<testcase classname="/DELETE/:id empleado" name="it should delete the empleado with the id = id" time="1.043"/>
-</testsuite>

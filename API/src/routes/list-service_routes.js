@@ -4,6 +4,8 @@ const listservice_controller = require('../controllers/list-service_controllers'
 
 router.get("/", listservice_controller.get);
 
+router.get("/:id", listservice_controller.getFromEmp);
+
 router.get("/:id/:id2", listservice_controller.getOne);
 
 router.post("/", listservice_controller.insert);

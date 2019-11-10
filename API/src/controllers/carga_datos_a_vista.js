@@ -10,18 +10,40 @@ const MostrarCategoria = (req, res) => {
         method: 'GET'
     };
 
-     Request.get(optionsGetuser, (error, response, body) => { //se consume la api categoria
+    Request.get(optionsGetuser, (error, response, body) => { //se consume la api categoria
         if (error) {
             res.render('error-page.html', Alerta());
             return console.dir(error);
         } else {
             categoria = JSON.parse(body); //obtenemos las categorias existentes en formato json
-            res.render('category-page.html',categoria);
-            }
+            res.render('category-page.html', categoria);
         }
+    }
 
 
-     )};
+    )
+};
+
+
+const MostrarServicios = (req, res) => {
+    const optionsGetuser = {
+        url: `http://${host}:${port}/servicio`,
+        method: 'GET'
+    };
+
+    Request.get(optionsGetuser, (error, response, body) => { //se consume la api categoria
+        if (error) {
+            res.render('error-page.html', Alerta());
+            return console.dir(error);
+        } else {
+            servicio = JSON.parse(body); //obtenemos las categorias existentes en formato json
+            res.render('catalog-page.html', servicio);
+        }
+    }
+
+
+    )
+};
 
 
 function Alerta(title, message, enlace, button) {
@@ -37,4 +59,5 @@ function Alerta(title, message, enlace, button) {
 
 module.exports = {
     MostrarCategoria: MostrarCategoria,
+    MostrarServicios: MostrarServicios,
 }
