@@ -17,22 +17,52 @@
 </head>
 
 <body>
+
     <%include partials/navigation.html%>
     <div class="border-white shadow-none register-photo">
         <div class="form-container">
             <div class="image-holder" style="background-image: url(&quot;/assets/img/tikal.jpg&quot;);"></div>
 
             <form method="post">
-                <h2 class="text-center"><strong>Ingresa </strong>a tu cuenta<strong>.</strong></h2>
-                <div class="form-group input-group mb-3"><input class="form-control" type="email" name="email" required="" placeholder="Email" autofocus="" autocomplete="on" inputmode="email">
-                    <div class="input-group-prepend border-bottom"><span class="input-group-text border-0" style="background-color: rgb(247,249,252);">@</span></div>
+                <% if (locals.credenciales) { %>
+                <div class="alert alert-warning text-center bg-warning border rounded shadow" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span></button><span class="text-light"><strong>Correo o contraseña
+                            incorrectos!&nbsp;</strong>
+                    </span>
                 </div>
-                <div class="form-group text-truncate input-group mb-3" style="margin-bottom: -18px;"><input class="form-control pwd" type="password" name="password" required="" placeholder="Password" autocomplete="off" id="password" style="font-size: 16px;">
-                    <div class="text-center shadow-none input-group-prepend border-0"><span class="text-center shadow-none input-group-text border-0" style="padding-top: 0px;padding-right: 0;padding-bottom: 0;padding-left: 0;height: 40px;"><button class="btn btn-primary btn-lg text-center border rounded-0 shadow-none reveal border-0" type="button" style="width: 42px;height: 40px;margin-top: 0px;padding: 0;" data-toggle="tooltip" data-placement="bottom" title="Mostrar contraseña"><i class="fa fa-eye shadow-none" id="icon-eye" style="width: 14px;"></i></button></span></div>
-                </div><span style="font-size: 15px;">Tipo de usuario:</span><select class="bg-white border rounded-0 form-control form-control-sm" required="" style="padding: 0px;margin-top: 10px;"><option value="1">Comprador de Servicio</option><option value="2">Oferente de servicio</option><option value="3">Empresa</option></select>
-                <div
-                    class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button></div><a href="registration" class="already" style="font-size: 14px;">¿Deseas contratar un servicio y no tienes una cuenta? <span style="text-decoration: underline;">Regístrate</span><br></a></form>
-    </div>
+                <% } %>
+
+
+                <h2 class="text-center"><strong>Ingresa </strong>a tu cuenta<strong>.</strong></h2>
+                <div class="form-group input-group mb-3"><input class="form-control" type="email" name="email"
+                        required="" placeholder="Email" autofocus="" autocomplete="on" inputmode="email">
+                    <div class="input-group-prepend border-bottom"><span class="input-group-text border-0"
+                            style="background-color: rgb(247,249,252);">@</span></div>
+                </div>
+                <div class="form-group text-truncate input-group mb-3" style="margin-bottom: -18px;"><input
+                        class="form-control pwd" type="password" name="password" required="" placeholder="Password"
+                        autocomplete="off" id="password" style="font-size: 16px;">
+                    <div class="text-center shadow-none input-group-prepend border-0"><span
+                            class="text-center shadow-none input-group-text border-0"
+                            style="padding-top: 0px;padding-right: 0;padding-bottom: 0;padding-left: 0;height: 40px;"><button
+                                class="btn btn-primary btn-lg text-center border rounded-0 shadow-none reveal border-0"
+                                type="button" style="width: 42px;height: 40px;margin-top: 0px;padding: 0;"
+                                data-toggle="tooltip" data-placement="bottom" title="Mostrar contraseña"><i
+                                    class="fa fa-eye shadow-none" id="icon-eye"
+                                    style="width: 14px;"></i></button></span></div>
+                </div><span style="font-size: 15px;">Tipo de usuario:</span>
+                <select name="tipousuario" class="bg-white border rounded-0 form-control form-control-sm" required=""
+                    style="padding: 0px;margin-top: 10px;">
+                    <option value="1">Comprador de Servicio</option>
+                    <option value="2">Oferente de servicio</option>
+                    <option value="3">Empresa</option>
+                </select>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button></div><a
+                    href="registration" class="already" style="font-size: 14px;">¿Deseas contratar un servicio y no
+                    tienes una cuenta? <span style="text-decoration: underline;">Regístrate</span><br></a>
+            </form>
+        </div>
     </div>
 
     <%include partials/footer.html%>
