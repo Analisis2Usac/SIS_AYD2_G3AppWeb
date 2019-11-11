@@ -26,14 +26,14 @@ router.get('/login', (req, res) => {
 
 
 
-router.get('/register-ind', (req, res) => {
-    res.render('registration-individual.html');
+router.get('/register-service', (req, res) => {
+    res.render('registration-service.html');
 });
 
-router.get('/register-comp', (req, res) => {
+/*router.get('/register-comp', (req, res) => {
     res.render('registration-company.html');
 });
-
+*/
 router.get('/registration', (req, res) => {
     res.render('registration.html');
 });
