@@ -27,7 +27,7 @@ const getOneCat = (req, res) => {
     const { id } = req.params;
     mysqlConnection.query('SELECT * FROM servicio WHERE id_categoria = ?', [id], (err, rows, fields) => {
         if (!err) {
-            res.json(rows[0]);
+            res.json(rows);
         } else {
             console.log(err);
         }
