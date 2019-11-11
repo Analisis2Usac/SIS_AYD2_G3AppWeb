@@ -46,6 +46,27 @@ const MostrarServicios = (req, res) => {
 };
 
 
+const MostrarServiciosPorCategoria = (req, res) => {
+
+    var id_categoria = req.params.id;
+
+    var request = require("request");
+
+    var options = {
+        method: 'GET',
+        url: `http://${host}:${port}/servicio/cate/${id_categoria}`,
+    };
+
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        ServicioporCategoria = JSON.parse(body);
+        res.send(ServicioporCategoria);
+    });
+
+
+};
+
+
 function Alerta(title, message, enlace, button) {
     var error = {
         title: "Error en la info.",
@@ -60,4 +81,5 @@ function Alerta(title, message, enlace, button) {
 module.exports = {
     MostrarCategoria: MostrarCategoria,
     MostrarServicios: MostrarServicios,
+    MostrarServiciosPorCategoria: MostrarServiciosPorCategoria
 }

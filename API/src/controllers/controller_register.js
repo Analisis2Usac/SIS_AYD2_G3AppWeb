@@ -101,13 +101,29 @@ const crearRegistroComprador = (req, res) => {
 
 
 
-const crearRegistroIndividual = (req, res) => {
-    res.send('Registro contador');
-}
+const crearRegistroServicio = (req, res) => {
+    var email = req.body.email;
+    var empresa = req.body.empresa;
+    var nit = req.body.nit;
+    var telefono = req.body.telefono;
+    var ciudad = req.body.ciudad;
+    var direccion = req.body.direccion;
+    var password = req.body.password;
+    var passwordconfirm = req.body.passwordconfirm;
 
 
-const crearRegistroCompany = (req, res) => {
-    res.send('Registro Company');
+    if (password !== passwordconfirm) {
+        //si son diferentes se muestra un mensaje de alerta
+        res.render('registration-service.html', {estado: "incorrectpassword",message:"La contraseña no coincide"});
+    } else {
+
+        //SI SON IGUALES CONTINUAMOS CON EL REGISTRO
+        res.send('iguales')       ;
+
+
+    }
+    
+    
 }
 
 
@@ -125,6 +141,6 @@ function Alerta(title, message, enlace, button) {
 
 module.exports = {
     crearRegistroComprador: crearRegistroComprador,
-    crearRegistroIndividual:crearRegistroIndividual,
-    crearRegistroCompany:crearRegistroCompany
+    crearRegistroServicio:crearRegistroServicio
+    
 }
