@@ -28,7 +28,8 @@ const loginWeb = (req, res) => {
         //3 Usuario Empresa oferente de servicios
 
             if (tipousuario == '1') {
-                res.render('catalog-page.html');
+
+                res.redirect('catalog-page');
             }else{}
 
 
