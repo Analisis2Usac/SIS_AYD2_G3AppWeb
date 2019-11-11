@@ -13,6 +13,7 @@ const get = (req, res) => {
 }
 
 const getFromEmp = (req, res) => {
+    const { id } = req.params;
     mysqlConnection.query('SELECT * FROM lista_servicio WHERE id_empresa = ? ', [id], (err, rows, fields) => {
         if (!err) {
             res.json(rows);
