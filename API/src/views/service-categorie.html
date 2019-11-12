@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Inicio - SIS</title>
+
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/line-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body>
+    <%include partials/navigation.html%>
+    <main class="page shopping-cart-page">
+        <section class="clean-block clean-cart dark">
+            <div class="container">
+
+                <div class="block-heading">
+                    <h1 class="text-info"
+                        style="font-style: normal;font-family: Montserrat, sans-serif;color: #3b99e0;">Servicios por
+                        categoría</h1>
+                    <div class="row">
+                        <div
+                            class="col-md-6 col-lg-7 col-xl-6 d-md-flex d-lg-flex d-xl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center">
+                            <p class="d-md-flex" style="font-size: 21px;">En esta sección se muestran los servicios de
+                                acuerdo a la categoría que seleccionaste!
+                            </p>
+                        </div>
+                        <div class="col d-xl-flex justify-content-xl-center align-items-xl-center"><img
+                                class="d-xl-flex" src="/assets/img/undraw_schedule_pnbk.svg" style="width: 300px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <div class="row no-gutters">
+                        <div class="col-md-12 col-lg-8">
+                            <div class="items">
+                                
+                                    <% for(var i=0; i < servicesxcategorie.length; i++) { %>
+                                        <div data-bs-hover-animate="pulse" class="product">
+                                                <div class="row justify-content-center align-items-center" data-bs-hover-animate="pulse">
+                                                    <div class="col-md-3 col-xl-3">
+                                                        <div class="product-image"><img class="img-fluid d-block mx-auto image" src="/assets/img/avatar.svg"></div>
+                                                    </div>
+                                                    <div class="col-md-5 col-xl-9 product-info"><a href="#" class="product-name"><%=servicesxcategorie[i].nombre_servicio%></a>
+                                                        <div class="product-specs">
+                                                            <div><span>Display:&nbsp;</span><span class="value">5 inch</span></div>
+                                                            <div><span>RAM:&nbsp;</span><span class="value">4GB</span></div>
+                                                            <div><span>Memory:&nbsp;</span><span class="value">32GB</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                <% }%>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="summary">
+                                <h3>Resumen de tu compra</h3>
+                                <h4><span class="text">Subtotal</span><span class="price">$0</span></h4>
+                                <h4><span class="text">Descuento</span><span class="price">$0</span></h4>
+                                <h4><span class="text">Costo de envio</span><span class="price">$0</span></h4>
+                                <h4><span class="text">Total</span><span class="price">$0</span></h4><button
+                                    class="btn btn-primary btn-block btn-lg" type="button">Revisa y pagar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%include partials/footer.html%>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/assets/js/script.min.js"></script>
+
+</body>
+
+</html>

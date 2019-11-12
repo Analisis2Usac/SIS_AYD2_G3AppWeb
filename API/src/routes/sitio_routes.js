@@ -52,6 +52,24 @@ router.get('/about-us', (req, res) => {
     res.render('about-us.html');
 });
 
+router.get('/contact-us', (req, res) => {
+    res.render('contact-us.html');
+});
+
+router.get('/faq', (req, res) => {
+    res.render('faq.html');
+});
+
+router.get('/perfil', (req, res) => {
+    res.render('perfil.html');
+});
+
+
+router.get('/service-categorie', (req, res) => {
+    res.render('service-categorie.html');
+});
+
+
 /*router.get('/category_page', (req, res) => {
     res.render('category_page');
 });
@@ -62,22 +80,24 @@ router.get('/category-page/:id', (req, res) => {
 });*/
 
 
-router.get('/category-page/:id', (req, res) => {
+/*router.get('/category-page/:id', (req, res) => {
 
     res.send(req.params.id);
-});
 
+
+});
+*/
 
 
 
 //POST
 router.post('/createRegister',controller_register.crearRegistroComprador);
-router.post('/createRegisterInd',controller_register.crearRegistroIndividual);
-router.post('/createRegisterComp',controller_register.crearRegistroCompany);
+router.post('/register-service',controller_register.crearRegistroServicio);
 router.post('/login',login.loginWeb);
 
 router.get('/category-page',cargar_vistas.MostrarCategoria);
 router.get('/catalog-page',cargar_vistas.MostrarServicios);
+router.get('/category-page/:id',cargar_vistas.MostrarServiciosPorCategoria);
 
 
 module.exports = router;
