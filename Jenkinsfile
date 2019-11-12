@@ -7,7 +7,7 @@ pipeline {
   tools {nodejs "node"}
   
   environment {
-       testing = false
+       testing = true
    }
    
   stages {
@@ -34,7 +34,7 @@ pipeline {
               dir('API') { 
                  //sh 'npm test'
                  //junit 'test-reports.xml'
-         testpass =true;
+        // testpass =true;
               }
            }
             post {
