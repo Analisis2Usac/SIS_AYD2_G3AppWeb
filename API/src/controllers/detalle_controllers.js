@@ -26,7 +26,7 @@ const getOne = (req, res) => {
 const insert = (req, res) => {
     const { id_contrato, fecha, id_empresa, id_servicio, id_pago, email } = req.body;
 
-    const query = `CALL detalleAddOrEdit(?, ?, ?)`;
+    const query = `CALL detalleAddOrEdit(?, ?, ?, ?, ?,?)`;
 
     mysqlConnection.query(query, [id_contrato, fecha, id_empresa, id_servicio, id_pago, email], (err, rows, fields) => {
         if (!err) {
