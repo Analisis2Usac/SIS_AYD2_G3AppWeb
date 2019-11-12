@@ -26,17 +26,18 @@ const MostrarCategoria = (req, res) => {
 
 
 const MostrarServicios = (req, res) => {
-    const optionsGetuser = {
+    const optionsGetListService = {
         url: `http://${host}:${port}/servicio`,
         method: 'GET'
     };
 
-    Request.get(optionsGetuser, (error, response, body) => { //se consume la api categoria
+ 
+    Request.get(optionsGetListService, (error, response, body) => { //se consume la api categoria
         if (error) {
             res.render('error-page.html', Alerta());
             return console.dir(error);
         } else {
-            servicio = JSON.parse(body); //obtenemos las categorias existentes en formato json
+            servicio = JSON.parse(body); //obtenemos los servicios que ofrece la plataforma
             res.render('catalog-page.html', servicio);
         }
     }
@@ -60,7 +61,8 @@ const MostrarServiciosPorCategoria = (req, res) => {
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
         ServicioporCategoria = JSON.parse(body);
-        res.send(ServicioporCategoria);
+        //res.send(ServicioporCategoria);
+        res.render('service-categorie.html',{servicesxcategorie:ServicioporCategoria});
     });
 
 

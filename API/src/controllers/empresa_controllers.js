@@ -30,7 +30,7 @@ const insert = (req, res) => {
 
     mysqlConnection.query(query, [id_empresa, nit, nombre, direccion, telefono, zona, latitud, longitud, id_municipio, email, password], (err, rows, fields) => {
         if (!err) {
-            res.json({ Status: 'Empresa Saved!' });
+            res.json("Empresa Saved");
         } else {
             console.log(err);
         }

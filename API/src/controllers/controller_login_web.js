@@ -8,7 +8,6 @@ const loginWeb = (req, res) => {
     var email = req.body.email;
     var password = req.body.password;
     var tipousuario = req.body.tipousuario;
-
     var options = {
         method: 'POST',
         url: `http://${host}:${port}/loginApi`,
@@ -16,35 +15,31 @@ const loginWeb = (req, res) => {
 
     };
 
-    request(options, function (error, response, body) {
-        if (error) throw new Error(error);
+    //1 Usuario Comprador
+    //2 Usuario Oferente de Servicio
+    //3 Usuario Empresa oferente de servicios
 
-        var estado_login = JSON.parse(body);//al consumir la api , devuelve OK si el usuario existe 
-
-        if (estado_login == 'OK') {
-
-        //1 Usuario Comprador
-        //2 Usuario Oferente de Servicio
-        //3 Usuario Empresa oferente de servicios
-
-            if (tipousuario == '1') {
-
+    if (tipousuario == '1') {
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            var estado_login = JSON.parse(body);//al consumir la api , devuelve OK si el usuario existe 
+            if (estado_login == 'OK') {
                 res.redirect('catalog-page');
-            }else{}
+            } else {
+                res.render('login.html', { credenciales: 'incorrect' });
+            }
+
+        });
 
 
 
-        } else {
-            res.render('login.html', { credenciales: 'incorrect' });
-        }
+    } else if (tipousuario == '2' || tipousuario == '3') {
+        res.redirect('perfil');
+    }
 
 
 
 
-
-
-
-    });
 
 
 

@@ -52,6 +52,24 @@ router.get('/about-us', (req, res) => {
     res.render('about-us.html');
 });
 
+router.get('/contact-us', (req, res) => {
+    res.render('contact-us.html');
+});
+
+router.get('/faq', (req, res) => {
+    res.render('faq.html');
+});
+
+router.get('/perfil', (req, res) => {
+    res.render('perfil.html');
+});
+
+
+router.get('/service-categorie', (req, res) => {
+    res.render('service-categorie.html');
+});
+
+
 /*router.get('/category_page', (req, res) => {
     res.render('category_page');
 });
